@@ -168,13 +168,3 @@ wks = sh[1]
 
 #update the first sheet with df, starting at cell B2. 
 wks.set_dataframe(ios_data_df,(1,1))
-
-
-# In[ ]:
-
-
-
-
-
-
-
