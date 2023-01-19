@@ -22,8 +22,10 @@ from datetime import date
 
 #this generate the widgets for date star and end
 
+today = date.today()
+
 start_date=widgets.Text(
-    value='2023-01-12',
+    value=today.strftime("%Y-%m-%d"),
     placeholder='Type something',
     description='Start Date:',
     disabled=False
