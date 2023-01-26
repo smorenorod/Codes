@@ -142,31 +142,38 @@ ios_data_df
 
 
 #google sheets API authorization 
-#you need to generate the credentials for google drive API following this ttutorial https://erikrood.com/Posts/py_gsheets.html
+#you need to generate the credentials for google drive API following this ttutorial https://erikrood.com/Posts/py_gsheets.html and save
+#the json file in a path in your computer to be access in the foowing code 
 gc = pygsheets.authorize(service_file='/Users/SMRB1/Documents/28. TicToc Games/st_credentials.json')
 
 
 # In[71]:
 
 
-#open the google spreadsheet (where 'PY to Gsheet Test' is the name of my sheet)
+#open the google spreadsheet (where 'Sensor Tower Data'' is the name of my sheet)
 sh = gc.open('Sensor Tower Data')
 
 #select the first sheet 
 wks = sh[0]
 
-#update the first sheet with df, starting at cell B2. 
+#clear old data
+wks.clear(start='A2', end=None, fields='*')
+
+#update the first sheet with df, starting at cell A2. 
 wks.set_dataframe(go_data_df,(1,1))
 
 
 # In[70]:
 
 
-#open the google spreadsheet (where 'PY to Gsheet Test' is the name of my sheet)
+#open the google spreadsheet (where 'Sensor Tower Data' is the name of my sheet)
 sh = gc.open('Sensor Tower Data')
 
-#select the first sheet 
+#select the second sheet 
 wks = sh[1]
 
-#update the first sheet with df, starting at cell B2. 
+#clear old data
+wks.clear(start='A2', end=None, fields='*')
+
+#update the second sheet with df, starting at cell A2. 
 wks.set_dataframe(ios_data_df,(1,1))
